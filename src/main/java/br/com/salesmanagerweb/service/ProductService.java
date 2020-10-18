@@ -14,6 +14,10 @@ public class ProductService {
     ProductClient productClient;
 
     public List<Product> getProducts() {
-        return productClient.getProducts();
+        return productClient.getProductById();
+    }
+
+    public Product findById(String id) {
+        return productClient.getProductById(id);
     }
 }

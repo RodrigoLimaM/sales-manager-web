@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sales Manager</title>
+        <title>Sales Manager - ${product.name }</title>
     </head>
     <body>
         <header>
@@ -19,16 +19,9 @@
             </div>
         </header>
         <div class="container">
-            <div class="grid">
-            <c:forEach items="${products }" var="product">
-                <a href="${s:mvcUrl('PC#getProductById').arg(0, product._id).build() }">
-                    <div class="product-div">
-                        <h2>${product.name }</h2>
-                        <h4>R$ ${product.unitaryValue}</h4>
-                    </div>
-                </a>
-            </c:forEach>
-            </div>
+            ${product.name } <br>
+            ${product.unitaryValue } <br>
+            ${product.description} <br>
         </div>
     </body>
 </html>
