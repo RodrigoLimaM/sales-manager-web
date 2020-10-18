@@ -20,7 +20,40 @@
             </div>
         </header>
         <div class="container">
-            ${product_id } - ${quantity }
+            <div class="order-form">
+                <%--@elvariable id="orderRequest" type="br.com.salesmanagerweb.model.request.OrderRequest"--%>
+                <form:form action="${s:mvcUrl('OC#createOrder').arg(0, product._id).build() }" method="POST" modelAttribute="orderRequest">
+                    <div class="field-form">
+                        <label>Recipient</label>
+                        <form:input path="address.recipient" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="field-form">
+                        <label>Street</label>
+                        <form:input path="address.street" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="field-form">
+                        <label>Number</label>
+                        <form:input type="number" path="address.number" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="field-form">
+                        <label>ZipCode</label>
+                        <form:input path="address.zipCode" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="field-form">
+                        <label>City</label>
+                        <form:input path="address.city" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="field-form">
+                        <label>State</label>
+                        <form:input path="address.state" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="field-form">
+                        <label>Country</label>
+                        <form:input path="address.country" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="buy-button"><button type="submit" class="btn btn-dark btn-lg btn-block">ORDER NOW!</button></div>
+                </form:form>
+            </div>
         </div>
     </body>
 </html>

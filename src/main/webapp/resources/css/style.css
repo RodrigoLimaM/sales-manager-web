@@ -77,3 +77,13 @@ a:hover {
     padding: 1% 45% 0% 45%;
     font-size: 20px;
 }
+
+.order-form {
+    padding-top: 1%;
+    font-size: 30px;
+    text-align: center;
+}
+
+.field-form {
+    padding: 1% 15% 0% 15%;
+}

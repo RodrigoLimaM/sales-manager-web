@@ -1,6 +1,7 @@
 package br.com.salesmanagerweb.controller;
 
-import br.com.salesmanagerweb.model.dto.QuantityDTO;
+import br.com.salesmanagerweb.model.request.OrderRequest;
+import br.com.salesmanagerweb.model.request.QuantityRequest;
 import br.com.salesmanagerweb.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +18,10 @@ public class OrderController {
     ProductService productService;
 
     @PostMapping
-    public ModelAndView createOrder(@RequestParam String _id, QuantityDTO quantityDTO) {
+    public ModelAndView createOrder(@RequestParam String _id, QuantityRequest quantityRequest) {
         return new ModelAndView("order")
                 .addObject("product_id", _id)
-                .addObject("quantity", quantityDTO.getQuantity());
+                .addObject("quantity", quantityRequest.getQuantity())
+                .addObject("orderRequest", new OrderRequest());
     }
 }

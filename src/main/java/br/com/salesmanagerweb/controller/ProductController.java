@@ -1,6 +1,6 @@
 package br.com.salesmanagerweb.controller;
 
-import br.com.salesmanagerweb.model.dto.QuantityDTO;
+import br.com.salesmanagerweb.model.request.QuantityRequest;
 import br.com.salesmanagerweb.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +20,6 @@ public class ProductController {
     public ModelAndView getProductById(@PathVariable String _id) {
         return new ModelAndView("product")
                 .addObject("product", productService.findById(_id))
-                .addObject("quantityDTO", new QuantityDTO());
+                .addObject("quantityRequest", new QuantityRequest());
     }
 }
