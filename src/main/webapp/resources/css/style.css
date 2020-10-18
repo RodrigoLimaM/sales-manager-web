@@ -87,3 +87,9 @@ a:hover {
 .field-form {
     padding: 1% 15% 0% 15%;
 }
+
+.login-form {
+    padding: 1% 39% 0% 39%;
+    font-size: 30px;
+    text-align: center;
+}

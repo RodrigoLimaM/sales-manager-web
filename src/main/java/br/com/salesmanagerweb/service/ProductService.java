@@ -1,7 +1,7 @@
 package br.com.salesmanagerweb.service;
 
 import br.com.salesmanagerweb.client.ProductClient;
-import br.com.salesmanagerweb.model.Product;
+import br.com.salesmanagerweb.model.response.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
