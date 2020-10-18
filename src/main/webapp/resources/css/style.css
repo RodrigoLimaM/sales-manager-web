@@ -34,12 +34,6 @@ body {
     padding-top: 30px;
 }
 
-.product-div {
-    text-align: center;
-    border: white 3px solid;
-    border-radius: 15px;
-}
-
 a {
     color: white;
 }
@@ -48,4 +42,38 @@ a:hover {
     color: #9d529d;
     text-decoration: none;
     transition: 0.5s;
+}
+
+.product-collection {
+    text-align: center;
+    border: white 3px solid;
+    border-radius: 15px;
+}
+
+.product-details {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.product-name {
+    font-size: 50px;
+}
+
+.product-value {
+    font-size: 40px;
+}
+
+.product-description {
+    padding-top: 6%;
+    font-size: 30px;
+}
+
+.buy-button {
+    padding: 3% 25% 3% 25%;
+    font-size: 30px;
+}
+
+.buy-quantity {
+    padding: 1% 45% 0% 45%;
+    font-size: 20px;
 }

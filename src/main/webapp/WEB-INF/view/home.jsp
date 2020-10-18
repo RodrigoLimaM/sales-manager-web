@@ -22,7 +22,7 @@
             <div class="grid">
             <c:forEach items="${products }" var="product">
                 <a href="${s:mvcUrl('PC#getProductById').arg(0, product._id).build() }">
-                    <div class="product-div">
+                    <div class="product-collection">
                         <h2>${product.name }</h2>
                         <h4>R$ ${product.unitaryValue}</h4>
                     </div>
