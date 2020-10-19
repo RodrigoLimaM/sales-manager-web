@@ -11,7 +11,7 @@ import java.util.List;
 public interface ProductClient {
 
     @GetMapping("/product")
-    List<Product> getProductById();
+    List<Product> getProducts();
 
     @GetMapping("/product/{_id}")
     Product getProductById(@PathVariable String _id);

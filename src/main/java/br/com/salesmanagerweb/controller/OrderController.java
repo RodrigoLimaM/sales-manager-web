@@ -3,7 +3,6 @@ package br.com.salesmanagerweb.controller;
 import br.com.salesmanagerweb.client.OrderClient;
 import br.com.salesmanagerweb.model.request.OrderRequest;
 import br.com.salesmanagerweb.model.request.QuantityRequest;
-import br.com.salesmanagerweb.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +17,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class OrderController {
 
     @Autowired
-    ProductService productService;
-
-    @Autowired
     OrderClient orderClient;
 
     @PostMapping
@@ -33,7 +29,6 @@ public class OrderController {
 
     @PostMapping("/confirmation")
     public ModelAndView requestOrder(OrderRequest orderRequest, RedirectAttributes model) {
-        System.out.println(orderRequest);
         model.addFlashAttribute("orderRequest", orderClient.createOrder(orderRequest));
         return new ModelAndView("redirect:/order/orderConfirmation");
     }
