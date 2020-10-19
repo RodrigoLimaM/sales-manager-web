@@ -20,7 +20,7 @@
                 <a href="#profile">Profile</a>
                 <div class="rigth-topnav">
                     <security:authorize access="isAuthenticated()">
-                        Welcome <security:authentication property="principal.name" />!
+                        <a href="#">Welcome <security:authentication property="principal.name" />!</a>
                     </security:authorize>
                 </div>
             </div>
