@@ -26,7 +26,7 @@
             </div>
         </header>
         <div class="container">
-            Success
+            Success ${orderRequest }
         </div>
     </body>
 </html>
