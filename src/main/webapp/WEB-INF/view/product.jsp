@@ -21,7 +21,9 @@
                 <a href="#profile">Profile</a>
                 <div class="rigth-topnav">
                     <security:authorize access="isAuthenticated()">
+                        <a href="/logout">logout</a>
                         <a href="#">Welcome <security:authentication property="principal.name" />!</a>
+                        <a href="#">Your balance: $ <security:authentication property="principal.balance" /></a>
                     </security:authorize>
                 </div>
             </div>
@@ -31,7 +33,7 @@
             <form:form action="${s:mvcUrl('OC#createOrder').arg(0, product._id).build() }" method="POST" modelAttribute="quantityRequest">
                 <div class="product-details">
                     <div class="product-name">${product.name }</div>
-                    <div class="product-value">R$ ${product.unitaryValue }</div>
+                    <div class="product-value">$ ${product.unitaryValue }</div>
                     <div class="product-description">${product.description}</div>
                     <div class="buy-quantity">
                         <label for="quantity">Quantidade:</label>

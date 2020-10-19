@@ -18,9 +18,10 @@
                 <a href="#orders">My Orders</a>
                 <a href="#profile">Profile</a>
                 <div class="rigth-topnav">
-<%--                    <a href="/logout">logout</a>--%>
                     <security:authorize access="isAuthenticated()">
-                        <a href="#">Welcome <security:authentication property="principal.name" />!</a>
+                    <a href="/logout">logout</a>
+                    <a href="#">Welcome <security:authentication property="principal.name" />!</a>
+                    <a href="#">Your balance: $ <security:authentication property="principal.balance" /></a>
                     </security:authorize>
                 </div>
             </div>
@@ -31,7 +32,7 @@
                 <a href="${s:mvcUrl('PC#getProductById').arg(0, product._id).build() }">
                     <div class="product-collection">
                         <h2>${product.name }</h2>
-                        <h4>R$ ${product.unitaryValue}</h4>
+                        <h4>$ ${product.unitaryValue}</h4>
                     </div>
                 </a>
             </c:forEach>

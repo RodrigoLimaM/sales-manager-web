@@ -9,7 +9,7 @@ body {
 }
 
 .rigth-topnav {
-    padding: 0% 0% 0% 84%;
+    padding: 0% 0% 0% 60%;
 }
 
 .topnav a {
@@ -102,4 +102,9 @@ a:hover {
     text-align: center;
     font-size: 15px;
     color: purple;
+}
+
+.order-confirmation {
+    text-align: center;
+    font-size: 30px;
 }

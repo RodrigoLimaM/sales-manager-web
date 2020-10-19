@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 
 @Setter
@@ -18,6 +19,8 @@ public class Customer implements UserDetails {
     private String email;
 
     private String password;
+
+    private BigDecimal balance;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

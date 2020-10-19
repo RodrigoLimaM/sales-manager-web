@@ -20,7 +20,9 @@
                 <a href="#profile">Profile</a>
                 <div class="rigth-topnav">
                     <security:authorize access="isAuthenticated()">
+                        <a href="/logout">logout</a>
                         <a href="#">Welcome <security:authentication property="principal.name" />!</a>
+                        <a href="#">Your balance: $ <security:authentication property="principal.balance" /></a>
                     </security:authorize>
                 </div>
             </div>
