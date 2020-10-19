@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 
 <link rel="stylesheet" href="/resources/css/bootstrap.css" />
 <link href="/resources/css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -17,12 +18,17 @@
                 <a class="active" href="/">Home</a>
                 <a href="#orders">My Orders</a>
                 <a href="#profile">Profile</a>
+                <div class="rigth-topnav">
+                    <security:authorize access="isAuthenticated()">
+                        Welcome <security:authentication property="principal.name" />!
+                    </security:authorize>
+                </div>
             </div>
         </header>
         <div class="container">
             <div class="order-form">
                 <%--@elvariable id="orderRequest" type="br.com.salesmanagerweb.model.request.OrderRequest"--%>
-                <form:form action="${s:mvcUrl('OC#createOrder').arg(0, product._id).build() }" method="POST" modelAttribute="orderRequest">
+                <form:form action="${s:mvcUrl('OC#requestOrder').build() }" method="POST" modelAttribute="orderRequest">
                     <div class="field-form">
                         <label>Recipient</label>
                         <form:input path="address.recipient" cssClass="form-control text-center"/>
@@ -51,6 +57,10 @@
                         <label>Country</label>
                         <form:input path="address.country" cssClass="form-control text-center"/>
                     </div>
+                    <security:authentication property="principal._id" var="customerId"/>
+                    <form:hidden path="customerId" value="${customerId }"/>
+                    <form:hidden path="productId" value="${product_id }"/>
+                    <form:hidden path="productQuantity" value="${quantity }"/>
                     <div class="buy-button"><button type="submit" class="btn btn-dark btn-lg btn-block">ORDER NOW!</button></div>
                 </form:form>
             </div>

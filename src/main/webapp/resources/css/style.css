@@ -8,6 +8,10 @@ body {
     overflow: hidden;
 }
 
+.rigth-topnav {
+    padding: 1% 0% 0% 86%;
+}
+
 .topnav a {
     float: left;
     color: #f2f2f2;
@@ -89,7 +93,13 @@ a:hover {
 }
 
 .login-form {
-    padding: 1% 39% 0% 39%;
+    padding: 11% 39% 0% 39%;
     font-size: 30px;
     text-align: center;
+}
+
+.login-error {
+    text-align: center;
+    font-size: 15px;
+    color: purple;
 }

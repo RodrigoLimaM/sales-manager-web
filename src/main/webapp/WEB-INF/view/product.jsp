@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
+
 
 <link rel="stylesheet" href="/resources/css/bootstrap.css" />
 <link href="/resources/css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -17,6 +19,11 @@
                 <a class="active" href="/">Home</a>
                 <a href="#orders">My Orders</a>
                 <a href="#profile">Profile</a>
+                <div class="rigth-topnav">
+                    <security:authorize access="isAuthenticated()">
+                        Welcome <security:authentication property="principal.name" />!
+                    </security:authorize>
+                </div>
             </div>
         </header>
         <div class="container">
@@ -28,7 +35,7 @@
                     <div class="product-description">${product.description}</div>
                     <div class="buy-quantity">
                         <label for="quantity">Quantidade:</label>
-                        <form:input type="number" min="0" max="${product.quantity }" path="quantity" cssClass="form-control text-center"/>
+                        <form:input type="number" min="1" max="${product.quantity }" path="quantity" cssClass="form-control text-center"/>
                     </div>
                     <div class="buy-button"><button type="submit" class="btn btn-dark btn-lg btn-block">BUY NOW!</button></div>
                 </div>

@@ -2,15 +2,24 @@ package br.com.salesmanagerweb.model.request;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @Getter
+@ToString
 public class OrderRequest {
+
+    private String customerId;
+
+    private String productId;
 
     private Address address;
 
+    private Integer productQuantity;
+
     @Getter
     @Setter
+    @ToString
     public static class Address {
 
         private String recipient;

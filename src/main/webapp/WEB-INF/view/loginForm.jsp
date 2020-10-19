@@ -27,11 +27,14 @@
                         <input name="username" type="text" class="form-control"/>
                     </div>
                     <div class="form-group">
-                        <label>Senha</label>
+                        <label>Password</label>
                         <input name="password" type="password" class="form-control"/>
                     </div>
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">Logar</button>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Login</button>
                 </form:form>
+                <c:if test="${ param.error ne null}">
+                    <div class="login-error">Invalid username/password</div>
+                </c:if>
             </div>
         </div>
     </body>

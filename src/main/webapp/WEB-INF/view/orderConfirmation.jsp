@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 
 <link rel="stylesheet" href="/resources/css/bootstrap.css" />
@@ -9,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sales Manager</title>
+        <title>Sales Manager - Order</title>
     </head>
     <body>
         <header>
@@ -25,16 +26,7 @@
             </div>
         </header>
         <div class="container">
-            <div class="grid">
-            <c:forEach items="${products }" var="product">
-                <a href="${s:mvcUrl('PC#getProductById').arg(0, product._id).build() }">
-                    <div class="product-collection">
-                        <h2>${product.name }</h2>
-                        <h4>R$ ${product.unitaryValue}</h4>
-                    </div>
-                </a>
-            </c:forEach>
-            </div>
+            Success
         </div>
     </body>
 </html>
