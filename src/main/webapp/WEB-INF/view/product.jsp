@@ -18,7 +18,6 @@
             <div class="topnav">
                 <a class="active" href="/">Home</a>
                 <a href="#orders">My Orders</a>
-                <a href="#profile">Profile</a>
                 <div class="rigth-topnav">
                     <security:authorize access="isAuthenticated()">
                         <a href="/logout">logout</a>
