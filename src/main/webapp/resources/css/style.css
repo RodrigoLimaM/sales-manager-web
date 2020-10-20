@@ -110,6 +110,11 @@ a:hover {
 }
 
 .order-confirmation {
+    padding: 18% 39% 0% 39%;
     text-align: center;
     font-size: 30px;
+}
+
+.order-details {
+    text-align: center;
 }

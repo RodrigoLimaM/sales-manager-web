@@ -28,9 +28,8 @@
             </div>
         </header>
         <div class="container">
-            <div class="order-confirmation">
-                Success!
-                <button type="submit" class="btn btn-dark btn-lg btn-block">See my orders</button>
+            <div class="order-details">
+                ${orderRequest }
             </div>
         </div>
     </body>

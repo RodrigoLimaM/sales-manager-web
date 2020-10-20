@@ -6,11 +6,11 @@ import br.com.salesmanagerweb.model.request.QuantityRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("order")
@@ -28,8 +28,7 @@ public class OrderController {
     }
 
     @PostMapping("/confirmation")
-    public ModelAndView requestOrder(OrderRequest orderRequest, RedirectAttributes model) {
-        model.addFlashAttribute("orderRequest", orderClient.createOrder(orderRequest));
+    public ModelAndView requestOrder(OrderRequest orderRequest) {
         return new ModelAndView("redirect:/order/orderConfirmation");
     }
 
@@ -38,4 +37,9 @@ public class OrderController {
         return new ModelAndView("orderConfirmation");
     }
 
+    @GetMapping("/{_id}")
+    public ModelAndView getProductById(@PathVariable String _id) {
+        return new ModelAndView("orderDetails")
+                .addObject("orderRequest", orderClient.getOrderById(_id));
+    }
 }
