@@ -36,7 +36,7 @@
                     <div class="product-value">$ ${product.unitaryValue }</div>
                     <div class="product-description">${product.description}</div>
                     <div class="buy-quantity">
-                        <label for="quantity">Quantidade:</label>
+                        <label for="quantity">Quantity:</label>
                         <form:input type="number" min="1" max="${product.quantity }" path="quantity" cssClass="form-control text-center"/>
                     </div>
                     <div class="buy-button"><button type="submit" class="btn btn-dark btn-lg btn-block">BUY NOW!</button></div>

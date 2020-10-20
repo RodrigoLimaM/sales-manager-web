@@ -27,6 +27,7 @@
             </div>
         </header>
         <div class="container">
+            <div class="products-title">Products:</div>
             <div class="grid">
             <c:forEach items="${products }" var="product">
                 <a href="${s:mvcUrl('PC#getProductById').arg(0, product._id).build() }">
