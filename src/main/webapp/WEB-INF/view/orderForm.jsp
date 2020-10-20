@@ -21,6 +21,7 @@
                 <div class="rigth-topnav">
                     <security:authorize access="isAuthenticated()">
                         <a href="/logout">logout</a>
+                        <a href="/order/myOrders/<security:authentication property="principal._id" />">My Orders</a>
                         <a href="#">Welcome <security:authentication property="principal.name" />!</a>
                         <a href="#">Your balance: $ <security:authentication property="principal.balance" /></a>
                     </security:authorize>
@@ -29,7 +30,7 @@
         </header>
         <div class="container">
             <div class="order-form">
-                <%--@elvariable id="orderRequest" type="br.com.salesmanagerweb.model.request.OrderRequest"--%>
+                <%--@elvariable id="orderRequest" type="br.com.salesmanagerweb.model.OrderRequest"--%>
                 <form:form action="${s:mvcUrl('OC#requestOrder').build() }" method="POST" modelAttribute="orderRequest">
                     <div class="field-form">
                         <label>Recipient</label>

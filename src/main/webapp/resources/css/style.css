@@ -9,7 +9,7 @@ body {
 }
 
 .rigth-topnav {
-    padding: 0% 0% 0% 60%;
+    padding: 0% 0% 0% 53%;
 }
 
 .topnav a {
@@ -31,7 +31,7 @@ body {
     color: white;
 }
 
-.grid {
+.products-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10%;

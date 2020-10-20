@@ -1,4 +1,4 @@
-package br.com.salesmanagerweb.model.response;
+package br.com.salesmanagerweb.model;
 
 import lombok.Getter;
 import lombok.Setter;

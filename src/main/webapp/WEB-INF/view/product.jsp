@@ -22,6 +22,7 @@
                 <div class="rigth-topnav">
                     <security:authorize access="isAuthenticated()">
                         <a href="/logout">logout</a>
+                        <a href="/order/myOrders/<security:authentication property="principal._id" />">My Orders</a>
                         <a href="#">Welcome <security:authentication property="principal.name" />!</a>
                         <a href="#">Your balance: $ <security:authentication property="principal.balance" /></a>
                     </security:authorize>
@@ -29,7 +30,7 @@
             </div>
         </header>
         <div class="container">
-            <%--@elvariable id="quantityRequest" type="br.com.salesmanagerweb.model.request.QuantityRequest"--%>
+            <%--@elvariable id="quantityRequest" type="br.com.salesmanagerweb.model.QuantityRequest"--%>
             <form:form action="${s:mvcUrl('OC#createOrder').arg(0, product._id).build() }" method="POST" modelAttribute="quantityRequest">
                 <div class="product-details">
                     <div class="product-name">${product.name }</div>

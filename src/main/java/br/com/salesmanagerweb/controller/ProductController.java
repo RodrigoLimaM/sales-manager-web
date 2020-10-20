@@ -1,7 +1,7 @@
 package br.com.salesmanagerweb.controller;
 
 import br.com.salesmanagerweb.client.ProductClient;
-import br.com.salesmanagerweb.model.request.QuantityRequest;
+import br.com.salesmanagerweb.model.QuantityRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,8 +1,9 @@
 package br.com.salesmanagerweb.controller;
 
 import br.com.salesmanagerweb.client.OrderClient;
-import br.com.salesmanagerweb.model.request.OrderRequest;
-import br.com.salesmanagerweb.model.request.QuantityRequest;
+import br.com.salesmanagerweb.client.TrackingClient;
+import br.com.salesmanagerweb.model.OrderRequest;
+import br.com.salesmanagerweb.model.QuantityRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,9 @@ public class OrderController {
 
     @Autowired
     OrderClient orderClient;
+
+    @Autowired
+    TrackingClient trackingClient;
 
     @PostMapping
     public ModelAndView createOrder(@RequestParam String _id, QuantityRequest quantityRequest) {
@@ -40,6 +44,13 @@ public class OrderController {
     @GetMapping("/{_id}")
     public ModelAndView getProductById(@PathVariable String _id) {
         return new ModelAndView("orderDetails")
-                .addObject("orderRequest", orderClient.getOrderById(_id));
+                .addObject("orderRequest", orderClient.getOrderById(_id))
+                .addObject("tracking", trackingClient.getTrackingByOrderId(_id));
+    }
+
+    @GetMapping("/myOrders/{customerId}")
+    public ModelAndView getOrdersByCustomerId(@PathVariable String customerId) {
+        return new ModelAndView("myOrders")
+                .addObject("orders", orderClient.getOrderByCustomerId(customerId));
     }
 }

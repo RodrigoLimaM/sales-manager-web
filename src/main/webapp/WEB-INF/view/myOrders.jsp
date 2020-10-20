@@ -15,6 +15,7 @@
         <header>
             <div class="topnav">
                 <a class="active" href="/">Home</a>
+                <a href="#orders">My Orders</a>
                 <a href="#profile">Profile</a>
                 <div class="rigth-topnav">
                     <security:authorize access="isAuthenticated()">
@@ -27,17 +28,7 @@
             </div>
         </header>
         <div class="container">
-            <div class="products-title">Products:</div>
-            <div class="products-grid">
-            <c:forEach items="${products }" var="product">
-                <a href="${s:mvcUrl('PC#getProductById').arg(0, product._id).build() }">
-                    <div class="product-collection">
-                        <h2>${product.name }</h2>
-                        <h4>$ ${product.unitaryValue}</h4>
-                    </div>
-                </a>
-            </c:forEach>
-            </div>
+           ${orders }
         </div>
     </body>
 </html>

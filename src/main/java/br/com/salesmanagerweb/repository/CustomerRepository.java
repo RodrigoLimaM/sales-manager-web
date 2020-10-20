@@ -1,7 +1,7 @@
 package br.com.salesmanagerweb.repository;
 
 import br.com.salesmanagerweb.client.CustomerClient;
-import br.com.salesmanagerweb.model.response.Customer;
+import br.com.salesmanagerweb.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

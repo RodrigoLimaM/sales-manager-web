@@ -1,6 +1,6 @@
 package br.com.salesmanagerweb.client;
 
-import br.com.salesmanagerweb.model.response.Customer;
+import br.com.salesmanagerweb.model.Customer;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
