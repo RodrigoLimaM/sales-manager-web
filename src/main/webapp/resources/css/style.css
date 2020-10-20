@@ -118,3 +118,21 @@ a:hover {
 .order-details {
     text-align: center;
 }
+
+.orders-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10%;
+    padding-top: 30px;
+}
+
+.orders-title {
+    font-size: 50px;
+    text-align: center;
+}
+
+.order-collection {
+    text-align: center;
+    border: white 3px solid;
+    border-radius: 15px;
+}

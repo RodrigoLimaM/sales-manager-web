@@ -28,14 +28,14 @@
         <div class="container">
             <div class="products-title">Products:</div>
             <div class="products-grid">
-            <c:forEach items="${products }" var="product">
-                <a href="${s:mvcUrl('PC#getProductById').arg(0, product._id).build() }">
-                    <div class="product-collection">
-                        <h2>${product.name }</h2>
-                        <h4>$ ${product.unitaryValue}</h4>
-                    </div>
-                </a>
-            </c:forEach>
+                <c:forEach items="${products }" var="product">
+                    <a href="${s:mvcUrl('PC#getProductById').arg(0, product._id).build() }">
+                        <div class="product-collection">
+                            <h2>${product.name }</h2>
+                            <h4>$ ${product.unitaryValue}</h4>
+                        </div>
+                    </a>
+                </c:forEach>
             </div>
         </div>
     </body>

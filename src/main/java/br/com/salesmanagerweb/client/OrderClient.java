@@ -19,5 +19,5 @@ public interface OrderClient {
     OrderRequest getOrderById(@PathVariable String _id);
 
     @GetMapping("/order/customer/{customerId}")
-    List<OrderRequest> getOrderByCustomerId(@PathVariable String customerId);
+    List<OrderRequest> getOrdersByCustomerId(@PathVariable String customerId);
 }

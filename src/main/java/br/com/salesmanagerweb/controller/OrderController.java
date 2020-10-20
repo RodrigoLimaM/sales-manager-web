@@ -4,6 +4,8 @@ import br.com.salesmanagerweb.client.OrderClient;
 import br.com.salesmanagerweb.client.TrackingClient;
 import br.com.salesmanagerweb.model.OrderRequest;
 import br.com.salesmanagerweb.model.QuantityRequest;
+import br.com.salesmanagerweb.service.OrderService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("order")
+@Slf4j
 public class OrderController {
 
     @Autowired
-    OrderClient orderClient;
+    OrderService orderService;
 
     @Autowired
     TrackingClient trackingClient;
@@ -33,6 +36,7 @@ public class OrderController {
 
     @PostMapping("/confirmation")
     public ModelAndView requestOrder(OrderRequest orderRequest) {
+        log.info("Order created: {} ", orderService.createOrder(orderRequest));
         return new ModelAndView("redirect:/order/orderConfirmation");
     }
 
@@ -44,13 +48,13 @@ public class OrderController {
     @GetMapping("/{_id}")
     public ModelAndView getProductById(@PathVariable String _id) {
         return new ModelAndView("orderDetails")
-                .addObject("orderRequest", orderClient.getOrderById(_id))
+                .addObject("orderRequest", orderService.getOrderById(_id))
                 .addObject("tracking", trackingClient.getTrackingByOrderId(_id));
     }
 
     @GetMapping("/myOrders/{customerId}")
     public ModelAndView getOrdersByCustomerId(@PathVariable String customerId) {
         return new ModelAndView("myOrders")
-                .addObject("orders", orderClient.getOrderByCustomerId(customerId));
+                .addObject("orders", orderService.getOrdersByCustomerId(customerId));
     }
 }

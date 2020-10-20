@@ -26,7 +26,18 @@
             </div>
         </header>
         <div class="container">
-           ${orders }
+            <div class="orders-title">Your orders:</div>
+            <div class="orders-grid">
+                <c:forEach items="${orders }" var="order">
+<%--                    <a href="${s:mvcUrl('PC#getProductById').arg(0, product._id).build() }">--%>
+                        <div class="order-collection">
+                            <h2>${order.productName }</h2>
+                            <h4>${order.productQuantity }x</h4>
+                            <h4>Total: $ ${order.orderTotalValue }</h4>
+                        </div>
+<%--                    </a>--%>
+                </c:forEach>
+            </div>
         </div>
     </body>
 </html>

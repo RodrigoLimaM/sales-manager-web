@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
+
 @Setter
 @Getter
 @ToString
@@ -16,6 +18,10 @@ public class OrderRequest {
     private Address address;
 
     private Integer productQuantity;
+    
+    private String productName;
+    
+    private BigDecimal orderTotalValue;
 
     @Getter
     @Setter
