@@ -15,8 +15,6 @@
         <header>
             <div class="topnav">
                 <a class="active" href="/">Home</a>
-                <a href="#orders">My Orders</a>
-                <a href="#profile">Profile</a>
             </div>
         </header>
         <div class="container">
