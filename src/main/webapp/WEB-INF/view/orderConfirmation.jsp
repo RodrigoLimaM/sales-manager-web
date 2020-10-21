@@ -31,8 +31,7 @@
         </header>
         <div class="container">
             <div class="order-confirmation">
-                Success!
-                <button type="submit" class="btn btn-dark btn-lg btn-block">See my orders</button>
+                Success! See you orders in the button above.
             </div>
         </div>
     </body>
