@@ -18,6 +18,9 @@
             <div class="topnav">
                 <a class="active" href="/">Home</a>
                 <div class="rigth-topnav">
+                    <security:authorize access="!isAuthenticated()">
+                        <div class="login"><a href="/login">login</a></div>
+                    </security:authorize>
                     <security:authorize access="isAuthenticated()">
                         <a href="/logout">logout</a>
                         <a href="/order/myOrders/<security:authentication property="principal._id" />">My Orders</a>
@@ -38,22 +41,30 @@
                     To: ${orderRequest.address.recipient }
                 </div>
                 <div class="tracking">
-                    <div class="order-details-title">Tracking:</div>
-                    <c:forEach items="${tracking.steps }" var="step" varStatus="status">
-                        <c:if test="${step.finisher eq false}">
-                            <div class="tracking-step">${step.description }: <javatime:format value="${step.date}" pattern="dd/MM/yyyy - HH:mm:ss" /></div>
-                        </c:if>
-                        <c:if test="${step.finisher eq true && step.description == 'Delivered'}">
-                            <div class="tracking-step-good">${step.description }: <javatime:format value="${step.date}" pattern="dd/MM/yyyy - HH:mm:ss" /></div>
-                        </c:if>
-                        <c:if test="${step.finisher eq true && step.description != 'Delivered'}">
-                            <div class="tracking-step-bad">${step.description }: <javatime:format value="${step.date}" pattern="dd/MM/yyyy - HH:mm:ss" /></div>
-                        </c:if>
-                        <c:if test="${!status.last }">
-                            <img src="https://icons-for-free.com/iconfiles/png/512/Arrow+Down+Direction+Wayfinding+Download-131983793705547942.png" width="30" height="30">
-                            <br>
-                        </c:if>
-                    </c:forEach>
+                    <c:if test="${tracking.steps != null}">
+                        <div class="order-details-title">Tracking:</div>
+                        <c:forEach items="${tracking.steps }" var="step" varStatus="status">
+                            <c:if test="${step.finisher eq false}">
+                                <div class="tracking-step">${step.description }: <javatime:format value="${step.date}" pattern="dd/MM/yyyy - HH:mm:ss" /></div>
+                            </c:if>
+                            <c:if test="${step.finisher eq true && step.description == 'Delivered'}">
+                                <div class="tracking-step-good">${step.description }: <javatime:format value="${step.date}" pattern="dd/MM/yyyy - HH:mm:ss" /></div>
+                            </c:if>
+                            <c:if test="${step.finisher eq true && step.description != 'Delivered'}">
+                                <div class="tracking-step-bad">${step.description }: <javatime:format value="${step.date}" pattern="dd/MM/yyyy - HH:mm:ss" /></div>
+                            </c:if>
+                            <c:if test="${!status.last }">
+                                <img src="https://icons-for-free.com/iconfiles/png/512/Arrow+Down+Direction+Wayfinding+Download-131983793705547942.png" width="30" height="30">
+                                <br>
+                            </c:if>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${tracking.steps == null && orderRequest.orderStatus == 'CANCELLED'}">
+                        <div class="order-details-title">Rejected payment :(</div>
+                    </c:if>
+                    <c:if test="${tracking.steps == null && orderRequest.orderStatus != 'CANCELLED'}">
+                        <div class="order-details-title">Approved payment, wait for more information :)</div>
+                    </c:if>
                 </div>
             </div>
         </div>

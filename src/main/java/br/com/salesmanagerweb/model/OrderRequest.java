@@ -25,6 +25,8 @@ public class OrderRequest {
     
     private BigDecimal orderTotalValue;
 
+    private OrderStatus orderStatus;
+
     @Getter
     @Setter
     @ToString
