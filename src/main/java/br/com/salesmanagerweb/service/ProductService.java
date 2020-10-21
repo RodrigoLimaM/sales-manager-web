@@ -1,0 +1,28 @@
+package br.com.salesmanagerweb.service;
+
+import br.com.salesmanagerweb.client.ProductClient;
+import br.com.salesmanagerweb.model.Product;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ProductService {
+
+    @Autowired
+    ProductClient productClient;
+
+
+    public String getProductNameByProductId(String productId) {
+        return productClient.getProductById(productId).getName();
+    }
+
+    public Product getProductById(String _id) {
+        return productClient.getProductById(_id);
+    }
+
+    public List<Product> getProducts() {
+        return productClient.getProducts();
+    }
+}

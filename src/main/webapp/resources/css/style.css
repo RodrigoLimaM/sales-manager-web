@@ -115,10 +115,6 @@ a:hover {
     font-size: 30px;
 }
 
-.order-details {
-    text-align: center;
-}
-
 .orders-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -132,7 +128,51 @@ a:hover {
 }
 
 .order-collection {
+    padding-top: 5%;
     text-align: center;
     border: white 3px solid;
     border-radius: 15px;
+}
+
+.order-details {
+    padding-top: 5%;
+    text-align: center;
+}
+
+.order-details-title {
+    font-size: 30px;
+}
+
+.address {
+    border: white 3px solid;
+    border-radius: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.tracking {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.tracking-step {
+    margin: 1% 27% 1% 27%;
+    border: white 3px solid;
+    border-radius: 15px;
+}
+
+.tracking-step-good {
+    margin: 1% 27% 1% 27%;
+    border: #007bff 3px solid;
+    border-radius: 15px;
+    color: #007bff;
+}
+
+.tracking-step-bad {
+    margin: 1% 27% 1% 27%;
+    border: #ab2222 3px solid;
+    border-radius: 15px;
+    color: #ab2222;
 }
