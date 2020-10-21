@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isErrorPage="true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 
 <link rel="stylesheet" href="/resources/css/bootstrap.css" />
@@ -9,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sales Manager - Orders</title>
+        <title>Sales Manager - Order</title>
     </head>
     <body>
         <header>
@@ -29,18 +30,7 @@
             </div>
         </header>
         <div class="container">
-            <div class="orders-title">Your orders:</div>
-            <div class="orders-grid">
-                <c:forEach items="${orders }" var="order">
-                    <a href="${s:mvcUrl('OC#getOrderById').arg(0, order._id).build() }">
-                        <div class="order-collection">
-                            <h2>${order.productName }</h2>
-                            <h4>${order.productQuantity }x</h4>
-                            <h4>Total: $ ${order.orderTotalValue }</h4>
-                        </div>
-                    </a>
-                </c:forEach>
-            </div>
+            <div class="error">Something went wrong, try again later. :(</div>
         </div>
     </body>
 </html>

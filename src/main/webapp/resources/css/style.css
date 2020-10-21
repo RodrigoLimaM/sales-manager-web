@@ -179,3 +179,9 @@ a:hover {
     border-radius: 15px;
     color: #ab2222;
 }
+
+.error {
+    font-size: 50px;
+    text-align: center;
+    padding-top: 20%;
+}
