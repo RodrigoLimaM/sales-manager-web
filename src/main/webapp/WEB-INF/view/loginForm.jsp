@@ -19,7 +19,7 @@
         </header>
         <div class="container">
             <div class="login-form">
-                <form:form servletRelativeAction="/login" method="post">
+                <form:form servletRelativeAction="/login" method="POST">
                     <div class="form-group">
                         <label>E-mail</label>
                         <input name="username" type="text" class="form-control"/>
@@ -29,6 +29,9 @@
                         <input name="password" type="password" class="form-control"/>
                     </div>
                     <button type="submit" class="btn btn-dark btn-lg btn-block">Login</button>
+                </form:form>
+                <form:form action="${s:mvcUrl('RC#getRegisterPage').build() }" method="GET">
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Register</button>
                 </form:form>
                 <c:if test="${ param.error ne null}">
                     <div class="login-error">Invalid username/password</div>
