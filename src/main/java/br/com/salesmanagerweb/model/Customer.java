@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.Collections;
 
 @Setter
 @Getter
@@ -24,7 +25,10 @@ public class Customer implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        if (this._id.equals("5f959a1534263543d88047ba"))
+            return Collections.singletonList(Role.ADMIN);
+        else
+            return Collections.singletonList(Role.USER);
     }
 
     @Override
