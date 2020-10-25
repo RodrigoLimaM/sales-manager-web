@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sales Manager</title>
+        <title>Sales Manager - Orders</title>
     </head>
     <body>
         <header>
@@ -32,13 +32,14 @@
             </div>
         </header>
         <div class="container">
-            <div class="products-title">Products:</div>
-            <div class="products-grid">
-                <c:forEach items="${products }" var="product">
-                    <a href="${s:mvcUrl('PC#getProductById').arg(0, product._id).build() }">
-                        <div class="product-collection">
-                            <h2>${product.name }</h2>
-                            <h4>$ ${product.unitaryValue}</h4>
+            <div class="orders-title">Orders:</div>
+            <div class="orders-grid">
+                <c:forEach items="${orders }" var="order">
+                    <a href="${s:mvcUrl('OC#getOrderById').arg(0, order._id).build() }">
+                        <div class="order-collection">
+                            <h6>Order: ${order._id }</h6>
+                            <h6>Customer: ${order.customerId }</h6>
+                            <h6>Product: ${order.productId }</h6>
                         </div>
                     </a>
                 </c:forEach>

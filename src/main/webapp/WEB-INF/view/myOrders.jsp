@@ -15,6 +15,9 @@
         <header>
             <div class="topnav">
                 <a class="active" href="/">Home</a>
+                <security:authorize access="hasAuthority('ADMIN')">
+                    <a href="/order/orderManagement">Manage Orders</a>
+                </security:authorize>
                 <div class="rigth-topnav">
                     <security:authorize access="!isAuthenticated()">
                         <div class="login"><a href="/login">login</a></div>

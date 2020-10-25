@@ -20,4 +20,7 @@ public interface OrderClient {
 
     @GetMapping("/order/customer/{customerId}")
     List<OrderRequest> getOrdersByCustomerId(@PathVariable String customerId);
+
+    @GetMapping("/order")
+    List<OrderRequest> getAllOrders();
 }

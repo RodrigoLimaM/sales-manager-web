@@ -1,10 +1,11 @@
 package br.com.salesmanagerweb.controller;
 
-import br.com.salesmanagerweb.client.TrackingClient;
 import br.com.salesmanagerweb.model.OrderRequest;
 import br.com.salesmanagerweb.model.QuantityRequest;
+import br.com.salesmanagerweb.model.TrackingRequest;
 import br.com.salesmanagerweb.service.OrderService;
 import br.com.salesmanagerweb.service.ProductService;
+import br.com.salesmanagerweb.service.TrackingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,7 @@ public class OrderController {
     OrderService orderService;
 
     @Autowired
-    TrackingClient trackingClient;
+    TrackingService trackingService;
 
     @Autowired
     ProductService productService;
@@ -54,13 +55,21 @@ public class OrderController {
 
         return new ModelAndView("orderDetails")
                 .addObject("orderRequest", orderRequest)
-                .addObject("tracking", trackingClient.getTrackingByOrderId(_id))
-                .addObject("productName", productService.getProductNameByProductId(orderRequest.getProductId()));
+                .addObject("tracking", trackingService.getTrackingByOrderId(_id))
+                .addObject("productName", productService.getProductNameByProductId(orderRequest.getProductId()))
+                .addObject("statuses", trackingService.getStatus())
+                .addObject("trackingRequest", new TrackingRequest());
     }
 
     @GetMapping("/myOrders/{customerId}")
     public ModelAndView getOrdersByCustomerId(@PathVariable String customerId) {
         return new ModelAndView("myOrders")
                 .addObject("orders", orderService.getOrdersByCustomerId(customerId));
+    }
+
+    @GetMapping("/orderManagement")
+    public ModelAndView getAllOrders() {
+        return new ModelAndView("allOrders")
+                .addObject("orders", orderService.getAllOrders());
     }
 }

@@ -17,6 +17,9 @@
         <header>
             <div class="topnav">
                 <a class="active" href="/">Home</a>
+                <security:authorize access="hasAuthority('ADMIN')">
+                    <a href="/order/orderManagement">Manage Orders</a>
+                </security:authorize>
                 <div class="rigth-topnav">
                     <security:authorize access="!isAuthenticated()">
                         <div class="login"><a href="/login">login</a></div>
@@ -58,6 +61,19 @@
                                 <br>
                             </c:if>
                         </c:forEach>
+                        <security:authorize access="hasAuthority('ADMIN')">
+                            <%--@elvariable id="trackingRequest" type="br.com.salesmanagerweb.model.TrackingRequest"--%>
+                            <form:form action="${s:mvcUrl('TC#changeOrderStatus').arg(0, orderRequest._id).build() }" method="POST" modelAttribute="trackingRequest">
+                                <div class="select-step">
+                                    <form:select class="form-control btn-dark" path="step">
+                                        <c:forEach items="${statuses }" var="status">
+                                            <form:option value="${status }" label="${status }"/>
+                                        </c:forEach>
+                                    </form:select>
+                                </div>
+                                <div class="update-button"><button type="submit" class="btn btn-dark btn-lg btn-block">Update</button></div>
+                            </form:form>
+                        </security:authorize>
                     </c:if>
                     <c:if test="${tracking.steps == null && orderRequest.orderStatus == 'CANCELLED'}">
                         <div class="order-details-title">Rejected payment :(</div>

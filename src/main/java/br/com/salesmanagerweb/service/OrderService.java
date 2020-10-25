@@ -39,4 +39,7 @@ public class OrderService {
         return orderClient.createOrder(orderRequest);
     }
 
+    public List<OrderRequest> getAllOrders() {
+        return orderClient.getAllOrders();
+    }
 }
