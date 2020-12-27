@@ -54,20 +54,20 @@
                         <form:input path="address.zipCode" cssClass="form-control text-center"/>
                     </div>
                     <div class="field-form">
-                        <label>City</label>
-                        <form:input path="address.city" cssClass="form-control text-center"/>
-                    </div>
-                    <div class="field-form">
-                        <label>State</label>
-                        <form:input path="address.state" cssClass="form-control text-center"/>
-                    </div>
-                    <div class="field-form">
                         <label>Country</label>
                         <form:select class="form-control text-center" path="address.country">
                             <c:forEach items="${countries }" var="country">
                                 <form:option value="${country }" label="${country }"/>
                             </c:forEach>
                         </form:select>
+                    </div>
+                    <div class="field-form">
+                        <label>State</label>
+                        <form:input path="address.state" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="field-form">
+                        <label>City</label>
+                        <form:input path="address.city" cssClass="form-control text-center"/>
                     </div>
                     <security:authentication property="principal._id" var="customerId"/>
                     <form:hidden path="customerId" value="${customerId }"/>
