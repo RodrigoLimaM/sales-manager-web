@@ -1,5 +1,6 @@
 package br.com.salesmanagerweb.config;
 
+import br.com.salesmanagerweb.model.Role;
 import br.com.salesmanagerweb.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -17,6 +18,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/product/add").hasRole(Role.ADMIN.name())
+                .antMatchers("/order/orderManagement").hasRole(Role.ADMIN.name())
                 .antMatchers("/resources/**").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/product/**").permitAll()
