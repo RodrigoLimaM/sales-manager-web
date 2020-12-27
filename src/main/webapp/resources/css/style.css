@@ -8,12 +8,13 @@ body {
     overflow: hidden;
 }
 
-.rigth-topnav {
-    padding: 0% 0% 0% 40%;
-}
-.login {
-    padding-left: 70%;
-}
+/*.rigth-topnav {*/
+/*    padding: 0% 0% 0% 0%;*/
+/*}*/
+
+/*.login {*/
+/*    padding-left: 0%;*/
+/*}*/
 
 .topnav a {
     float: left;

@@ -24,10 +24,10 @@
                         <div class="login"><a href="/login">login</a></div>
                     </security:authorize>
                     <security:authorize access="isAuthenticated()">
-                        <a href="/logout">logout</a>
                         <a href="/order/myOrders/<security:authentication property="principal._id" />">My Orders</a>
                         <a href="#">Welcome <security:authentication property="principal.name" />!</a>
                         <a href="#">Your balance: $ <security:authentication property="principal.balance" /></a>
+                        <a href="/logout">logout</a>
                     </security:authorize>
                 </div>
             </div>
