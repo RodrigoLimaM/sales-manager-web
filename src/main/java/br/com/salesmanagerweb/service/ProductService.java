@@ -27,7 +27,7 @@ public class ProductService {
         return productClient.getProducts();
     }
 
-    public Product addProduct(ProductRequest productRequest) {
+    public ProductRequest addProduct(ProductRequest productRequest) {
         return productClient.addProduct(productRequest);
     }
 }

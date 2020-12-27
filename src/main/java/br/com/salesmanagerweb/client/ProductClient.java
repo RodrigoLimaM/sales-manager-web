@@ -20,5 +20,5 @@ public interface ProductClient {
     Product getProductById(@PathVariable String _id);
 
     @PostMapping("/product")
-    Product addProduct(@RequestBody ProductRequest productRequest);
+    ProductRequest addProduct(@RequestBody ProductRequest productRequest);
 }

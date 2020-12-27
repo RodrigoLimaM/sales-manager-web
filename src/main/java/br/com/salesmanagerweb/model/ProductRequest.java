@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 @ToString
 public class ProductRequest {
 
+    private String _id;
+
     private String name;
 
     private Integer quantity;
