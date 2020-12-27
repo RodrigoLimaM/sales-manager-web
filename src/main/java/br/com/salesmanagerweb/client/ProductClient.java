@@ -1,9 +1,12 @@
 package br.com.salesmanagerweb.client;
 
 import br.com.salesmanagerweb.model.Product;
+import br.com.salesmanagerweb.model.ProductRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -15,4 +18,7 @@ public interface ProductClient {
 
     @GetMapping("/product/{_id}")
     Product getProductById(@PathVariable String _id);
+
+    @PostMapping("/product")
+    Product addProduct(@RequestBody ProductRequest productRequest);
 }

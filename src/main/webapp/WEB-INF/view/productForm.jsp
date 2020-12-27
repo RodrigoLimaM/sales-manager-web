@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isErrorPage="true" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -9,9 +9,9 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Sales Manager - Order</title>
-    </head>
+<head>
+    <title>Sales Manager - Product Add</title>
+</head>
     <body>
         <header>
             <div class="topnav">
@@ -34,7 +34,28 @@
             </div>
         </header>
         <div class="container">
-            <div class="error">Something went wrong, try again later. :(</div>
+            <div class="product-form">
+                <%--@elvariable id="productRequest" type="br.com.salesmanagerweb.model.ProductRequest"--%>
+                <form:form action="${s:mvcUrl('PC#addProduct').build() }" method="POST" modelAttribute="productRequest">
+                    <div class="field-form">
+                        <label>Name</label>
+                        <form:input path="name" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="field-form">
+                        <label>Quantity</label>
+                        <form:input path="quantity" type="number" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="field-form">
+                        <label>Unitary value</label>
+                        <form:input path="unitaryValue" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="field-form">
+                        <label>Description</label>
+                        <form:input path="description" cssClass="form-control text-center"/>
+                    </div>
+                    <div class="add-product-button"><button type="submit" class="btn btn-dark btn-lg btn-block">Add Product</button></div>
+                </form:form>
+            </div>
         </div>
     </body>
 </html>

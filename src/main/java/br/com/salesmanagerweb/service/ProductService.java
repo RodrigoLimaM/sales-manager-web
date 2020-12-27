@@ -2,6 +2,7 @@ package br.com.salesmanagerweb.service;
 
 import br.com.salesmanagerweb.client.ProductClient;
 import br.com.salesmanagerweb.model.Product;
+import br.com.salesmanagerweb.model.ProductRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,9 @@ public class ProductService {
 
     public List<Product> getProducts() {
         return productClient.getProducts();
+    }
+
+    public Product addProduct(ProductRequest productRequest) {
+        return productClient.addProduct(productRequest);
     }
 }

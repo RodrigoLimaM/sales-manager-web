@@ -206,3 +206,14 @@ a:hover {
     padding: 0% 35% 3% 35%;
     font-size: 30px;
 }
+
+.product-form {
+    padding-top: 1%;
+    font-size: 30px;
+    text-align: center;
+}
+
+.add-product-button {
+    padding: 3% 25% 3% 25%;
+    font-size: 30px;
+}

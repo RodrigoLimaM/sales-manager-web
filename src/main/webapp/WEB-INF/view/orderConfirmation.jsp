@@ -18,6 +18,7 @@
                 <a class="active" href="/">Home</a>
                 <security:authorize access="hasAuthority('ADMIN')">
                     <a href="/order/orderManagement">Manage Orders</a>
+                    <a href="/product/add">Add Product</a>
                 </security:authorize>
                 <div class="rigth-topnav">
                     <security:authorize access="!isAuthenticated()">
