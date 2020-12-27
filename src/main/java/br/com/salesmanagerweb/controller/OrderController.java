@@ -1,8 +1,10 @@
 package br.com.salesmanagerweb.controller;
 
+import br.com.salesmanagerweb.client.CountriesClient;
 import br.com.salesmanagerweb.model.OrderRequest;
 import br.com.salesmanagerweb.model.QuantityRequest;
 import br.com.salesmanagerweb.model.TrackingRequest;
+import br.com.salesmanagerweb.service.CountriesService;
 import br.com.salesmanagerweb.service.OrderService;
 import br.com.salesmanagerweb.service.ProductService;
 import br.com.salesmanagerweb.service.TrackingService;
@@ -30,12 +32,16 @@ public class OrderController {
     @Autowired
     ProductService productService;
 
+    @Autowired
+    CountriesService countriesService;
+
     @PostMapping
     public ModelAndView createOrder(@RequestParam String _id, QuantityRequest quantityRequest) {
         return new ModelAndView("orderForm")
                 .addObject("product_id", _id)
                 .addObject("quantity", quantityRequest.getQuantity())
-                .addObject("orderRequest", new OrderRequest());
+                .addObject("orderRequest", new OrderRequest())
+                .addObject("countries", countriesService.getCountries());
     }
 
     @PostMapping("/confirmation")

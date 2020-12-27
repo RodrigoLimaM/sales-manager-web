@@ -63,7 +63,11 @@
                     </div>
                     <div class="field-form">
                         <label>Country</label>
-                        <form:input path="address.country" cssClass="form-control text-center"/>
+                        <form:select class="form-control text-center" path="address.country">
+                            <c:forEach items="${countries }" var="country">
+                                <form:option value="${country }" label="${country }"/>
+                            </c:forEach>
+                        </form:select>
                     </div>
                     <security:authentication property="principal._id" var="customerId"/>
                     <form:hidden path="customerId" value="${customerId }"/>
