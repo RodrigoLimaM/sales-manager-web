@@ -26,11 +26,9 @@ public class Customer implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (this._id.equals("5f959a1534263543d88047ba")) {
-            System.out.println("ADMIN****************");
             return Collections.singletonList(Role.ADMIN);
         }
         else {
-            System.out.println("USER****************");
             return Collections.singletonList(Role.USER);
         }
     }
