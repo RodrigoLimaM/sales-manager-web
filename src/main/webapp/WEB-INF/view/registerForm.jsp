@@ -33,7 +33,7 @@
                         <label>Password</label>
                         <form:password path="password" cssClass="form-control text-center"/>
                     </div>
-                    <form:hidden path="balance" value="0"/>
+                    <form:hidden path="balance" value="10000"/>
                     <div class="register-button"><button type="submit" class="btn btn-dark btn-lg btn-block">Register</button></div>
                 </form:form>
             </div>
