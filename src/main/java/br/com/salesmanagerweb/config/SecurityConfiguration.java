@@ -18,15 +18,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/product/add").hasRole(Role.ADMIN.name())
-                .antMatchers("/order/orderManagement").hasRole(Role.ADMIN.name())
+                .antMatchers("/product/add").hasAuthority(Role.ADMIN.name())
+                .antMatchers("/order/orderManagement").hasAuthority(Role.ADMIN.name())
                 .antMatchers("/resources/**").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/product/**").permitAll()
                 .antMatchers("/register/**").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").permitAll()
-                .and().logout().permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+                .and().logout().permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
         ;
     }
 
